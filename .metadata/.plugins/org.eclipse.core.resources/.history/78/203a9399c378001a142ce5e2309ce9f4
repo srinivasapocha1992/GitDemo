@@ -1,0 +1,62 @@
+package testcases;
+
+
+import org.apache.log4j.LogManager;
+import org.apache.log4j.Logger;
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import basePackage.baseClass;
+import pages.loginPage;
+
+public class LoginTestcase extends baseClass {
+	
+	private static Logger log = LogManager.getLogger(LoginTestcase.class.getName());
+	public LoginTestcase() {
+		super();
+	}
+
+	loginPage login;
+
+	@BeforeTest
+	public void setUp() throws InterruptedException {
+		login = new loginPage();
+		initialization();
+		System.out.println("Browser Launched");
+		Thread.sleep(3000);
+		launch();
+		System.out.println("Browser maximized");
+
+	}
+
+	@AfterTest
+	public void tearDown() throws InterruptedException {
+		Thread.sleep(3000);
+		driver.close();
+	}
+
+	@Test
+	public void testCase1() throws InterruptedException {
+		//Thread.sleep(3000);
+		Actions actions = new Actions(driver);
+		actions.sendKeys(Keys.ESCAPE).build().perform();
+		//System.out.println("PopUp Closed");
+		//Thread.sleep(3000);
+		login.userName();
+		log.info("Enter the data in username feild");
+		//System.out.println("Data Entered into the Search Feild");
+		Thread.sleep(3000);
+		actions.sendKeys(Keys.ENTER).build().perform();
+		//System.out.println("Enter Key Pressed");
+		//Thread.sleep(3000);
+		
+		driver.findElements(By.xpath("//*[contains(@text()='soundarya cream']"));
+		driver.findElement(By.className("_2cLu-l")).click();
+		//System.out.println("Selected the Product");
+		//System.out.println("This Product is suggested to you Thankyou");
+   }
+}

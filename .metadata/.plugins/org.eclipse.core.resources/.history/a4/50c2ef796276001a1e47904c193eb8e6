@@ -1,0 +1,11 @@
+package pages;
+
+import java.io.IOException;
+
+import basePackage.baseClass;
+
+public class loginPage extends baseClass{
+	
+	
+
+}

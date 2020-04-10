@@ -1,0 +1,62 @@
+package basePackage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Properties;
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
+
+public class baseClass {
+	public static Properties pro;
+	FileInputStream fis;
+	public static WebDriver driver;
+
+	public baseClass() {
+		pro = new Properties();
+		try {
+			fis = new FileInputStream(System.getProperty("user.dir") + "//config.properties");
+			pro.load(fis);
+
+		} catch (Exception e) {
+			System.out.println(e.getStackTrace());
+		}
+
+	}
+
+	public void initialization() {
+		String browser = pro.getProperty("browser");
+		if (browser.equals("chrome")) {
+			System.setProperty("webdriver.chrome.driver",
+					"C:\\Users\\804401\\eclipse-workspace\\framework\\drivers\\chromedriver.exe");
+			driver = new ChromeDriver();
+			manageIt();
+		} else if (browser.equals("firefox")) {
+			System.setProperty("webdriver.firefox.driver", System.getProperty("user.dir") + "");
+			driver = new FirefoxDriver();
+			manageIt();
+		}
+
+	}
+
+	public void launch() {
+		driver.get(pro.getProperty("baseUrl"));
+	}
+
+	public void manageIt() {
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
+		driver.manage().deleteAllCookies();
+
+	}
+
+	public void close() {
+		// driver.close();
+	}
+
+}

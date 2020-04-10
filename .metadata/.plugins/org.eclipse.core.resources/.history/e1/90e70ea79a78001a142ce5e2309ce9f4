@@ -1,0 +1,15 @@
+package pages;
+
+import org.openqa.selenium.By;
+
+import basePackage.baseClass;
+
+public class loginPage extends baseClass {
+	By userName = By.className("LM6RPg");
+
+	public void userName() {
+		
+		driver.findElement(userName).sendKeys("vasu");
+	}
+
+}

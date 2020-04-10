@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="27521" started-at="2020-04-07T11:02:18Z" finished-at="2020-04-07T11:02:45Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="27521" started-at="2020-04-07T11:02:18Z" finished-at="2020-04-07T11:02:45Z">
+      <class name="testcases.LoginTestcase">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:testcases.LoginTestcase@3891771e]" name="setUp" is-config="true" duration-ms="11678" started-at="2020-04-07T11:02:18Z" finished-at="2020-04-07T11:02:29Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testCase1()[pri:0, instance:testcases.LoginTestcase@3891771e]" name="testCase1" duration-ms="12751" started-at="2020-04-07T11:02:29Z" finished-at="2020-04-07T11:02:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testCase1 -->
+        <test-method status="PASS" signature="extentReports()[pri:0, instance:testcases.LoginTestcase@3891771e]" name="extentReports" is-config="true" duration-ms="0" started-at="2020-04-07T11:02:42Z" finished-at="2020-04-07T11:02:42Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- extentReports -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:testcases.LoginTestcase@3891771e]" name="tearDown" is-config="true" duration-ms="3058" started-at="2020-04-07T11:02:42Z" finished-at="2020-04-07T11:02:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- testcases.LoginTestcase -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

@@ -1,0 +1,55 @@
+package utilities;
+
+import java.util.NoSuchElementException;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
+
+import basePackage.baseClass;
+public class Reusabilities extends baseClass{
+	public static long timeINSeconds;
+	public boolean isElementPresent(By locator, long waitTime) {
+        boolean bflag = false;
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, waitTime);
+            wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+            if (driver.findElement(locator).isDisplayed() || driver.findElement(locator).isEnabled()) {
+                bflag = true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Element." + locator + " was not not found in time " + waitTime + "seconds" + "-NosuchElementException");
+            Assert.fail("locator is not present");
+        } catch (TimeoutException e) {
+            System.out.println("Element." + locator + " was not not found in time " + waitTime + "seconds" + "-TimeoutException");
+            Assert.fail("locator is not present");
+        } catch (Exception e) {
+            System.out.println("Element." + locator + " was not not found in time" + e);
+            Assert.fail("locator is not present");
+        }
+        return bflag;
+    }
+
+    public boolean isElementVisible(By locator, long waitTime) {
+        boolean bFlag = false;
+        try {
+            WebDriverWait wait = new WebDriverWait(driver, waitTime);
+            wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            if (driver.findElement(locator).isDisplayed()) ;
+            {
+                bFlag = true;
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("Element." + locator + "was not not found in time " + waitTime + "seconds" + "-NosuchElementException");
+
+        } catch (TimeoutException e) {
+            System.out.println("Element." + locator + "was not not found in time " + waitTime + "seconds" + "-TimeoutException");
+        } catch (Exception e) {
+            System.out.println("Element." + locator + "was not not found in time" + e);
+        }
+        return bFlag;
+    }
+
+}

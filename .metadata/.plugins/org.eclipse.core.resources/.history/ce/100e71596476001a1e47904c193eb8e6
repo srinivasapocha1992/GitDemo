@@ -1,0 +1,18 @@
+package pages;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+
+import basePackage.baseClass;
+
+public class loginPage extends baseClass{
+	By userName = By.className("_3Ep39l");
+	public void login()
+	{
+		driver.findElement(userName).click();
+	}
+	
+	
+
+}

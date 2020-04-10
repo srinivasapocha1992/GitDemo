@@ -1,0 +1,53 @@
+package testcases;
+
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.BeforeTest;
+import org.testng.annotations.Test;
+
+import basePackage.baseClass;
+import pages.loginPage;
+
+public class LoginTestcase extends baseClass {
+	public LoginTestcase() {
+		super();
+	}
+
+	loginPage login;
+
+	@BeforeTest
+	public void setUp() {
+		login = new loginPage();
+		initialization();
+		launch();
+
+	}
+
+	@Test
+	public void testCase1() throws InterruptedException {
+		Thread.sleep(3000);
+		/*Alert alert = driver.switchTo().alert();
+		alert.dismiss();*/
+		try
+		{
+			driver.findElement(By.className("_2AkmmA _29YdH8")).click();
+		}
+		catch(Exception e) {
+			System.out.println(e.getStackTrace());
+		}
+		
+		
+		login.userName();
+		
+
+	}
+
+	@AfterTest
+	public void tearDown() {
+		//driver.close();
+	}
+
+}

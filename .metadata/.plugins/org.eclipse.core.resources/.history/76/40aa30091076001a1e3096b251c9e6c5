@@ -1,0 +1,21 @@
+package testcases;
+
+import java.io.IOException;
+
+import org.openqa.selenium.By;
+import org.testng.annotations.Test;
+
+import basePackage.baseClass;
+
+public class homePage extends baseClass{
+
+	public homePage() throws IOException {
+		super();
+			}
+	String url = pro.getProperty("baseUrl");
+	@Test(priority=1)
+	public void launchUrl() {
+       driver.get(url);
+       driver.findElement(By.className("LM6RPg")).click();
+	}
+}

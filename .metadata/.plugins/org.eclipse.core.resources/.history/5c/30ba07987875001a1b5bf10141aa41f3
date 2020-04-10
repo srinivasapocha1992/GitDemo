@@ -1,0 +1,18 @@
+package basePackage;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.Properties;
+
+public class baseClass {
+	Properties pro;
+	FileInputStream fis;
+	public baseClass() throws FileNotFoundException
+	{
+		pro = new Properties();
+		fis = new FileInputStream(System.getProperty("user.dir")+"//config.properties");
+	}
+		
+	
+	
+}

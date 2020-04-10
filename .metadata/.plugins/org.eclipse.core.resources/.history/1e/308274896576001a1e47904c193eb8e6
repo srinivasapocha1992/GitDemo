@@ -1,0 +1,53 @@
+package testcases;
+
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
+import org.testng.annotations.Test;
+
+import basePackage.baseClass;
+
+public class homePage extends baseClass{
+
+	public homePage() throws IOException {
+		super();
+			}
+	String url = pro.getProperty("baseUrl");
+	@Test(priority=1 ,  enabled= false)
+	public void launchUrl() {
+       driver.get(url);
+       Actions actions = new Actions(driver);
+       actions.sendKeys(Keys.ESCAPE).build().perform();
+       driver.findElement(By.className("LM6RPg")).click();
+       actions.sendKeys("iphone se").build().perform();
+       driver.findElement(By.className("vh79eN")).click();
+    
+	ArrayList<WebElement> list = new ArrayList<WebElement>(driver.findElements(By.xpath("//*[contains(text(),'Apple iPhone SE')]")));
+       System.out.println(list.size());
+       for(WebElement ele : list)
+       {
+    	   
+    	   String element = ele.getText();
+    	   System.out.println(element);
+    	   ele.click(); 	   
+    	  
+    	   
+       }	   
+	}
+	@Test(priority=2)
+	public void testCase()
+	{
+		driver.get(url);
+		Actions actions = new Actions(driver);
+	       actions.sendKeys(Keys.ESCAPE).build().perform();
+		//driver.findElement(By.xpath("//*[@contains(text()='Plus')]")).click();
+	       //driver.findElement(By.className("_3Ep39l")).click();
+	   
+	       driver.findElement(By.className("_2aUbKa")).click();
+	}
+}
